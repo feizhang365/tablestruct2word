@@ -1,7 +1,10 @@
 ## export data table structure to office document
+
    every project i need to export data table structure to office document,
-   and this work need lost of time , so i wrote this code to help me.
+   and this takes time , so i wrote this code to help me.
+   
 ## requirements
+
    * python3.6+
    * currently only support mysql
  
@@ -27,5 +30,10 @@
   ```
       python src/main.py   
   ```
+## 🙏 thanks
+
+* [PyMySQL](https://github.com/PyMySQL/PyMySQL)：PyMySQL
+* [python-docx](https://github.com/python-openxml/python-docx)：python-docx
+
 ## License
    MIT © [feizhang](https://github.com/feizhang365) 
