@@ -30,6 +30,9 @@
   ```
       python src/main.py   
   ```
+  * output demo
+    ![output demo](demo.jpg)
+    
 ## 🙏 thanks
 
 * [PyMySQL](https://github.com/PyMySQL/PyMySQL)：PyMySQL
