@@ -22,15 +22,20 @@ def main():
             for tb in tb_list:
                 print(tb)
                 tb_name = tb[0]
-
                 cursor.execute("SHOW FULL FIELDS FROM {}".format(tb_name))
                 # Field | Type | Collation | Null | Key | Default | Extra | Privileges | Comment
                 tb_rs = cursor.fetchall()
+                # get table comment info
+                cursor.execute("SELECT table_comment FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='{}'\
+                 AND table_name='{}'".format(DB_CONFIG['db'], tb_name))
+                tb_comment = cursor.fetchone()[0]
                 # print("列名", "数据类型", "Null", "Key", "Default", "栏位说明")
                 # for r in tb_rs:
                 #     print(r[0], r[1], r[3], r[4], r[5], r[8])
-                doc_append_table(doc, tb_rs, tb_name)
-            doc.save('outputdoc/demo.docx')
+                doc_append_table(doc, tb_rs, tb_name, tb_comment)
+            output_file_name = "outputdoc/{}.docx".format(DB_CONFIG['db'])
+            with open(output_file_name, "w") as file:
+                doc.save(output_file_name)
     finally:
         conn.close()
 
